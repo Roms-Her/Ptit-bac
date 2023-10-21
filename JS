@@ -1,0 +1,46 @@
+// BTN Générer 
+const btnGenere = document.querySelector(".btn-genere");
+console.log(btnGenere);
+
+
+
+// La Lettre aléatoire
+const lettre = document.querySelector(".lettre");
+console.log(lettre);
+
+
+
+// BTN Relancer
+const btnRelance = document.querySelector(".relancer");
+console.log(btnRelance);
+
+
+// Fonction : générateur de lettre aléatoire 
+function genererLettreAleatoire() {
+    const indice = Math.floor(Math.random() * 26);
+    const lettreAleatoire = String.fromCharCode('a'.charCodeAt(0) + indice);
+    return lettreAleatoire;
+  }
+
+
+
+// Au click sur Générer le block laisse place a la lettre aléatoire
+btnGenere.addEventListener("click", function(){
+    console.log("click");
+
+    if (btnGenere.innerText === "Générer"){
+
+        // console.log(btnGenere)
+        btnGenere.classList.toggle("btn-genere-update");
+
+        lettre.classList.toggle("lettre-update");
+        lettre.innerText = genererLettreAleatoire();
+}});
+
+
+// Au click sur Relancer, une nouvelle lettre aléatoire apparait
+btnRelance.addEventListener("click", function(){
+    // console.log("cliqué")
+    lettre.innerText = genererLettreAleatoire();
+
+});
